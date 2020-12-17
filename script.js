@@ -1,11 +1,16 @@
-const myHeading = document.getElementById("heading");
-const myKeyValue = document.getElementById("keyValue");
-const myKeyCode = document.getElementById("keyCode");
-const myCharCode = document.getElementById("charCode");
+const keyboard = {
+    myHeading: document.getElementById("heading"),
+    myKeyValue: document.getElementById("keyValue"),
+    myKeyCode: document.getElementById("keyCode"),
+    myCharCode: document.getElementById("charCode"),
+    keyFunction: function(x) {
+        this.myHeading.innerHTML = `${x.charCode}`;
+        this.myKeyValue.innerHTML = `${x.key}`;
+        this.myKeyCode.innerHTML = `${x.code}`;
+        this.myCharCode.innerHTML = `${x.charCode}`;
+    }
+    };
 
 document.addEventListener("keypress", (x) => {
-    myHeading.textContent = `${x.charCode}`;
-    myKeyValue.textContent = `${x.key}`;
-    myKeyCode.textContent = `${x.code}`;
-    myCharCode.textContent = `${x.charCode}`;
-    })
+    keyboard.keyFunction(x);
+});
